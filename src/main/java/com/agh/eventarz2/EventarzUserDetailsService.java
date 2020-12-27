@@ -37,7 +37,6 @@ public class EventarzUserDetailsService implements UserDetailsService {
      */
     @Override
     @Transactional
-    @io.github.resilience4j.retry.annotation.Retry(name="loadUserByUsernameRetry")
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username);
         if (user == null) {
